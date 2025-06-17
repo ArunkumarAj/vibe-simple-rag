@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: python backend/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db  # Optional: if you add a separate database service
+
+  db: # Example for a PostgreSQL database, adapt if not needed or using SQLite
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=rag_db
+      - POSTGRES_USER=rag_user
+      - POSTGRES_PASSWORD=rag_password
+    # ports: # Uncomment to expose PostgreSQL port if needed for direct access
+    #   - "5432:5432"
+
+volumes:
+  postgres_data: # Persists data even if the db container is stopped/removed

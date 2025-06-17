@@ -1,0 +1,8 @@
+django
+djangorestframework
+pymupdf
+sentence-transformers
+chromadb
+faiss-cpu
+groq
+django-cors-headers
