@@ -85,7 +85,6 @@ rag-geni-pro/
     **Note:** The `docker-compose.yml` is configured to use the `.env` file automatically.
 
     *   `GROQ_API_KEY`: Your API key for Groq. You can get this from the [Groq Console](https://console.groq.com/keys).
-        ```bash
 
 
 5.  **Apply Django Migrations:**
